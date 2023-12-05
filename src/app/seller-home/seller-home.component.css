@@ -1,0 +1,49 @@
+.container {
+    padding-bottom: 2px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    margin: 16px 0;
+    color: #48afff;
+}
+
+.product {
+    margin-bottom: 24px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 10px;
+}
+
+.product-image {
+    text-align: center;
+    padding-top: 16px;
+}
+
+.product-image img {
+    width: 100px;
+    height: 100px;
+}
+
+.product-details {
+    padding: 16px;
+}
+
+.edit {
+    cursor: pointer;
+    margin-right: 12px;
+    color: #48afff;
+}
+
+.delete {
+    cursor: pointer;
+    color: red;
+}
+
+@media only screen and (max-width: 576px) {
+    .product-image {
+        margin-bottom: 16px;
+    }
+
+}

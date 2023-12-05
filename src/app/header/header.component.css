@@ -1,0 +1,237 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    background-color: #48afff;
+    text-align: center;
+    padding: 15px 30px;
+    height: 72px;
+}
+
+nav .icon {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    margin: 6px 0;
+}
+
+.menu ul li {
+    margin: 0 2px;
+}
+
+.menu ul li a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 5px 10px;
+}
+
+.menu ul li a:hover {
+    background: #fff;
+    color: #48afff;
+    border-radius: 8px;
+}
+
+nav .search-box {
+    display: flex;
+    margin: auto 0;
+    height: 45px;
+    line-height: 35px;
+}
+
+nav .search-box input {
+    border: none;
+    outline: none;
+    background: #fff;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 300px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+nav .search-box .searchIcon {
+    border: none;
+    outline: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: #48afff;
+    background: #fff;
+    font-size: 20px;
+    height: 100%;
+    padding: 0 8px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+nav .search-box .searchIcon::after {
+    height: 100%;
+    width: 0%;
+    content: '';
+    position: absolute;
+    background: #42b72a;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+nav .search-box .searchIcon:hover {
+    color: #fff;
+}
+
+nav .search-box .searchIcon:hover::after {
+    width: 100%;
+}
+
+.suggested-result {
+    position: absolute;
+    display: list-item !important;
+    list-style-type: none;
+    z-index: 10;
+    top: 64px;
+    width: 338px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: unset;
+}
+
+.suggested-result li {
+    cursor: pointer;
+    padding: 12px 8px;
+    text-align: left;
+}
+
+.suggested-result li a {
+    text-decoration: none;
+}
+
+.suggested-result li:hover {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+nav .bars {
+    position: relative;
+    margin: auto;
+    display: none;
+}
+
+nav .bars .barIcon, .timeIcon {
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+}
+
+input::placeholder {
+    font-size: 14px;
+}
+
+.context-menu{
+    cursor: context-menu;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.logOut {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+    nav {
+        display: block;
+        padding: 0;
+        height: auto;
+    }
+
+    nav .icon {
+        display: inline-block;
+        padding: 15px 30px;
+    }
+
+    nav .search-box {
+        display: inline-flex;
+        width: 100%;
+        margin: 16px 0;
+        justify-content: center;
+    }
+
+    nav .search-box input {
+        width: 80vw;
+    }
+
+    .suggested-result {
+        width: 84vw;
+        top: 136px;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+        background: #48afff;
+        height: 0;
+        visibility: hidden;
+        transition: 0.3s;
+    }
+
+    .menu ul li {
+        text-align: left;
+    }
+
+    .menu ul li a {
+        display: block;
+        color: #fff;
+        font-weight: 600;
+        font-size: 24px;
+        padding: 8px 8px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+
+    nav .bars {
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 24px;
+        cursor: pointer;
+    }
+
+    nav .bars .timeIcon {
+        display: none;
+    }
+
+    #check:checked~nav .bars .timeIcon {
+        display: block;
+    }
+
+    #check:checked~nav .bars .barIcon {
+        display: none;
+    }
+
+    #check:checked~nav ul {
+        visibility: visible;
+        height: auto;
+    }
+
+}

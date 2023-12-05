@@ -1,0 +1,1 @@
+export let baseUrl = 'https://e-com-9edd7-default-rtdb.firebaseio.com';

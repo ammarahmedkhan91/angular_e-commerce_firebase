@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="spinner-container" *ngIf="spinner">
+        <div class="spinner-border text-info" role="status" style="width: 5rem; height: 5rem;">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="searchNotFound" class="text-center">
+        <h2 style="color: #48afff;">{{searchNotFound}}</h2>
+    </div>
+    <div class="row" *ngIf="searchNotFound == undefined">
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let search of searchProduct">
+            <div class="search-container cursor" routerLink="/details/{{search.id}}">
+                <div class="search-image">
+                    <div class="image">
+                        <img src="{{search.image}} " alt="">
+                    </div>
+                </div>
+                <div class="search-details">
+                    <div class="details">
+                        <div class="product-name">{{search.name}}</div>
+                        <div class="product-price">Rs. {{search.price}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

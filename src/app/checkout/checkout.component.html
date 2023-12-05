@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row checkout" *ngIf="userCartData || buyProductData">
+        <div class="col-md-4">
+            <div class="summary">
+                <h3>Summary</h3>
+            <ul>
+                <li>Amount <p>{{summary.price}}</p></li>
+                <li>Tax <p>{{summary.tax}}</p></li>
+                <li>Discount <p>{{summary.discount}}</p></li>
+                <li>Delivery <p>{{summary.delivery}}</p></li>
+                <li>Total <p>{{summary.total}}</p></li>
+                <li>Payment <p>C.O.D</p></li>
+            </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form">
+                <form class="common-form" #orderDat="ngForm" (ngSubmit)="orderNow(orderDat.value)" autocomplete="off">
+                    <h3>Shipping Address</h3>
+                    <p class="message-p">{{orderMsg}}</p>
+                    <input class="form-input" type="text" name="email" placeholder="Enter Email" #email="ngModel" ngModel pattern="^[A-Za-z]{3,}\d+@[A-Za-z]{4,}\.[A-Za-z]{2,}$" required>
+                    <div *ngIf="email.touched && email.invalid">
+                        <p class="invalid-input" *ngIf="email.errors && email.errors['required']">Email is required</p>
+                        <p class="invalid-input" *ngIf="email.errors && email.errors['pattern']">Please Enter Valid Email Address</p>
+                    </div>
+                    <input class="form-input" type="text" name="address" #address="ngModel" placeholder="Enter Address" ngModel required>
+                    <div *ngIf="address.touched && address.invalid">
+                        <p class="invalid-input" *ngIf="address.errors && address.errors['required']">Address is required</p>
+                    </div>
+                    <input class="form-input" type="text" name="contact" #contact="ngModel" placeholder="Enter Phone" ngModel>
+                    <button class="form-btn proceed-btn order" [disabled]="orderDat.invalid" *ngIf="orderBtn">Order Now</button>
+                    <button class="btn btn-primary form-btn product-btn" type="button" disabled *ngIf="loadingBtn">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

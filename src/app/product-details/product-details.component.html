@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="spinner-container" *ngIf="!productData">
+        <div class="spinner-border text-info" role="status" style="width: 5rem; height: 5rem;">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="row search-products" *ngIf="productData">
+        <div class="col-sm-4 search-image">
+            <div class="image">
+                <img src="{{productData.image}} " alt="img">
+            </div>
+        </div>
+        <div class="col-sm-8 search-details">
+            <div class="details">
+                <p class="product-name">{{productData.name}}</p>
+                <p class="product-price">Rs.{{productData.price}}</p>
+                <p><b>Color:</b> {{productData.color}}</p>
+                <p [style.backgroundColor]="productData.color" class="product-color">
+                <p>
+                <p><b>Category:</b> {{productData.category}}</p>
+                <p class="product-description"><b>Description:</b> {{productData.description}}</p>
+                <button class="form-btn proceed-btn buy" (click)="buyProduct(productData.id)">Buy Now</button>
+                <button class="form-btn cart-btn" (click)="addToCart(productData.id)" *ngIf="addCart">Add to cart</button>
+                <button class="form-btn remove-btn" (click)="removeToCart()" *ngIf="removeBtn">Remove to cart</button>
+                <button class="form-btn loading-btn bg-transparent text-success" type="button" disabled *ngIf="loadingBtn">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+                <div class="quantity-group">
+                    <button (click)="handleQuantity('min')">-</button>
+                    <input type="text" value={{productQuantity}}>
+                    <button (click)="handleQuantity('plus')">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

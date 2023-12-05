@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="spinner-container" *ngIf="!popularProducts.length">
+		<div class="spinner-border text-info" role="status" style="width: 5rem; height: 5rem;">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+	<ngb-carousel *ngIf="popularProducts.length">
+		<ng-template ngbSlide *ngFor="let items of popularProducts">
+			<div class="picsum-img-wrapper">
+				<a routerLink="/details/{{items.id}}"><img src="{{items.image}}" alt="img" /></a>
+			</div>
+			<div class="carousel-caption">
+				<h6>{{items.name}}</h6>
+			</div>
+		</ng-template>
+	</ngb-carousel>
+	<div class="product-list-wrapper" *ngIf="allProducts.length">
+		<h3>Trendy Products</h3>
+		<div class="row">
+			<div class="col-xl-3 col-lg-4 col-sm-6"
+				*ngFor="let product of allProducts | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
+				<div class="product-items" routerLink="/details/{{product.id}}">
+					<div class="product-image">
+						<img src="{{product.image}}" alt="">
+					</div>
+					<div class="product-details">
+						<div class="product-name">
+							<div *ngIf="product.name.length > 20; else name">
+								<p>{{product.name.slice(0,19)}}...</p>
+							</div>
+							<ng-template #name>
+								<p>{{product.name}}</p>
+							</ng-template>
+						</div>
+						<div class="product-description">
+							<div *ngIf="product.description.length > 20; else description">
+								<p>{{product.description.slice(0,19)}}...</p>
+							</div>
+							<ng-template #description>
+								<p>{{product.description}}</p>
+							</ng-template>
+						</div>
+						<div class="product-price">
+							<p>Rs. {{product.price}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="pagination" *ngIf="allProducts.length">
+		<pagination-controls class="my-pagination" (pageChange)="page = $event"></pagination-controls>
+	</div>
+</div>
+<app-footer></app-footer>
