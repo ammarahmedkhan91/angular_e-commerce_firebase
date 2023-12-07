@@ -35,7 +35,7 @@ export class UserService {
 
   userlogin(data: login) {
     return this.http.get(`${baseUrl}/users.json`, { observe: 'response' }).subscribe((result: any) => {
-      if (result && result.body.length) {
+      if (result && result.body) {
         let userLogin = result.body.filter((user: any) => {
           return data.email == user.email && data.password == user.password;
         });
@@ -54,6 +54,8 @@ export class UserService {
         } else {
           this.isloginError.emit(true)
         }
+      } else {
+        this.isloginError.emit(true)
       }
     });
   }

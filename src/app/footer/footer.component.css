@@ -2,25 +2,12 @@
     padding: 0;
     margin: 0;
     overflow: hidden;
-}
-
-/* .footer {
-    padding: 10px;
     background-color: #48afff;
-    margin-top: 24px;
 }
-
-.footer ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-} */
 
 .footer-row-section {
     display: flex;
     padding: 2rem 1rem;
-    background-color: #48afff;
 }
 
 .footer-row-section .icon {
@@ -51,8 +38,10 @@
 }
 
 .copyright {
-    width: 100vw;
+    height: 40px;
     color: #fff;
-    text-align: center;
-    background-color: #48afff;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+    background-color: #161616;
 }
