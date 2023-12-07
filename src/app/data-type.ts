@@ -20,6 +20,7 @@ export interface login{
 }
 
 export interface product{
+    loading: boolean,
     id:number,
     name:string,
     price:number,

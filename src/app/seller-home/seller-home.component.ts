@@ -43,11 +43,12 @@ export class SellerHomeComponent implements OnInit {
     })
   };
 
-  deleteProduct(id: number) {
+  deleteProduct(deleteProduct: product) {
+    deleteProduct.loading = true;
     this.product.getAllProducts().subscribe((result) => {
       if (result) {
         let remainProducts = result.filter((product) => {
-          return product.id !== id;
+          return product.id !== deleteProduct.id;
         });
         if (remainProducts) {
           this.product.addProduct(remainProducts).subscribe(() => {

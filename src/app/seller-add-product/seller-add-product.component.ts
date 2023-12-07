@@ -27,6 +27,7 @@ export class SellerAddProductComponent {
     let sellerId = seller && JSON.parse(seller).sellerId;
     productData.id = Number(new Date());
     productData.sellerId = sellerId;
+    productData.loading = false;
     this.products.push(productData);
     this.productService.addProduct(this.products).subscribe((result) => {
       if (result) {

@@ -22,7 +22,10 @@
             <p><b>Description: </b>{{product.description}}</p>
             <div class="btn-upd-del">
                 <a routerLink="/seller-update-product/{{product.id}}/{{i}}"><fa-icon class="edit" [icon]="edit"></fa-icon></a>
-                <a (click)="deleteProduct(product.id)"><fa-icon class="delete" [icon]="trash"></fa-icon></a>
+                <a (click)="deleteProduct(product)"><fa-icon class="delete" [icon]="trash" *ngIf="!product.loading"></fa-icon></a>
+                <div class="spinner-border spinner-border-sm text-danger" role="status" *ngIf="product.loading">
+                    <span class="sr-only">Loading...</span>
+                  </div>
             </div>
         </div>
 
