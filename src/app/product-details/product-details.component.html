@@ -19,7 +19,7 @@
                 <p>
                 <p><b>Category:</b> {{productData.category}}</p>
                 <p class="product-description"><b>Description:</b> {{productData.description}}</p>
-                <button class="form-btn proceed-btn buy" (click)="buyProduct(productData.id)">Buy Now</button>
+                <button class="form-btn proceed-btn buy-btn" (click)="buyProduct(productData.id)">Buy Now</button>
                 <button class="form-btn cart-btn" (click)="addToCart(productData.id)" *ngIf="addCart">Add to cart</button>
                 <button class="form-btn remove-btn" (click)="removeToCart()" *ngIf="removeBtn">Remove to cart</button>
                 <button class="form-btn loading-btn bg-transparent text-success" type="button" disabled *ngIf="loadingBtn">

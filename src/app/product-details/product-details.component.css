@@ -64,18 +64,9 @@
     border-radius: 50%;
 }
 
-.buy {
+.buy-btn {
     margin-left: 0;
     width: 140px;
-}
-
-.cart-btn {
-    width: 140px;
-    background-color: #48afff;
-}
-
-.cart-btn:hover{
-    background-color: #229fff;
 }
 
 .quantity-group {
@@ -127,14 +118,13 @@
         font-size: 18px;
     }
 
-    .product-btn {
-        margin-bottom: 16px;
+    .buy-btn {
+        margin-left: 8px;
     }
 
-    .cart-btn {
+    .buy-btn, .cart-btn, .remove-btn, .loading-btn {
         margin-bottom: 8px;
     }
-
 
     .quantity-group {
         margin-top: 0;

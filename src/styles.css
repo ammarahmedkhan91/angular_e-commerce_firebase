@@ -53,8 +53,19 @@ body {
     background-color: #42b72a;
 }
 
-.proceed-btn:hover{
-    background-color: #39ac22;
+.cart-btn {
+    width: 140px;
+    background-color: #48afff;
+}
+
+.cart-btn:hover{
+    background-color: #229fff;
+}
+
+.loading-btn {
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 140px;
 }
 
 .remove-btn {
@@ -62,14 +73,12 @@ body {
     width: 140px;
 }
 
-.remove-btn:hover{
-    background-color: #c01220;
+.proceed-btn:hover{
+    background-color: #39ac22;
 }
 
-.loading-btn {
-    border: 1px solid black;
-    border-radius: 4px;
-    width: 140px;
+.remove-btn:hover{
+    background-color: #c01220;
 }
 
 .signup,
@@ -162,11 +171,5 @@ button:disabled {
 @media screen and (max-width: 991px ) {
     .picsum-img-wrapper img {
         height: calc(100vh - 197px);
-    }
-}
-
-@media only screen and (max-width:434px) {
-    .form-btn {
-        margin: 8px 0 0 0;
     }
 }
