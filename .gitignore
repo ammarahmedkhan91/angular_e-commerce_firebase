@@ -13,6 +13,9 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+.firebaserc
+firebase.json
+
 # CircleCI temporary file for cache key computation.
 # See `save_month_to_file` in `.circleci/config.yml`.
 month.txt
@@ -26,6 +29,8 @@ pubspec.lock
 !.devcontainer/recommended-devcontainer.json
 !.devcontainer/recommended-Dockerfile
 .settings/
+.firebase/
+.github/
 .angular/cache
 .vscode/launch.json
 .vscode/settings.json
