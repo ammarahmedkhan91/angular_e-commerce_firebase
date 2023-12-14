@@ -12,6 +12,8 @@ export class SellerAddProductComponent {
 
   products: product[] = [];
   addProductMessage: string | undefined;
+  loadingBtn: boolean = false;
+  cartBtn: boolean = true;
  
   constructor(private productService: ProductService, private router: Router) { 
     this.productService.getAllProducts().subscribe((product) => {
@@ -22,6 +24,8 @@ export class SellerAddProductComponent {
   }
 
   submit(productData: product) {
+    this.loadingBtn = true;
+    this.cartBtn = false;
     
     let seller = localStorage.getItem('seller');
     let sellerId = seller && JSON.parse(seller).sellerId;

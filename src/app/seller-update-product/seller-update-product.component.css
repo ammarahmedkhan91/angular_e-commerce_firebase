@@ -8,3 +8,7 @@ h1{
 .update-product{
     text-align: center;
 }
+
+.loading-btn {
+    margin-bottom: 8px;
+}

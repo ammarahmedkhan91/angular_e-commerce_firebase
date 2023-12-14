@@ -1,13 +1,36 @@
 <div class="update-product">
     <h1>Update Product</h1>
     <p class="message-p">{{productMessage}}</p>
-    <form #productForm="ngForm" class="common-form" (ngSubmit)="submit(productForm.value)">
-        <input class="form-input" type="text" placeholder="Product Name" name="name" ngModel={{productData?.name}} #name>
-        <input class="form-input" type="text" placeholder="Product Price" name="price" ngModel={{productData?.price}} #price>
-        <input class="form-input" type="text" placeholder="Product Category" name="category" ngModel={{productData?.category}} #category>
-        <input class="form-input" type="text" placeholder="Product Color" name="color" ngModel ={{productData?.color}} #color>
-        <textarea class="form-input" type="text" placeholder="Product Description" name="description" ngModel={{productData?.description}} #description></textarea>
-        <input class="form-input" type="text" placeholder="Product Image Url" name="image" ngModel={{productData?.image}} #image>
-        <button class="form-btn proceed-btn">Update Product</button>
+    <form #productForm="ngForm" class="common-form" (ngSubmit)="submit(productForm.value)" autocomplete="off">
+        <input class="form-input" type="text" placeholder="Product Name" name="name" ngModel={{productData?.name}} #productName="ngModel" required minlength="3" maxlength="15">
+        <div *ngIf="productName.touched && productName.invalid">
+            <p class="invalid-input" *ngIf="productName.errors && productName.errors['required']">Enter Product Name</p>
+            <p class="invalid-input" *ngIf="productName.errors && productName.errors['minlength']">3 Charactters Must</p>
+        </div>
+        <input class="form-input" type="text" placeholder="Product Price" name="price" ngModel={{productData?.price}} #productPrice="ngModel" required>
+        <div *ngIf="productPrice.touched && productPrice.invalid">
+            <p class="invalid-input" *ngIf="productPrice.errors && productPrice.errors['required']">Enter Product Price</p>
+        </div>
+        <input class="form-input" type="text" placeholder="Product Category" name="category" ngModel={{productData?.category}} #productCategory="ngModel" required>
+        <div *ngIf="productCategory.touched && productCategory.invalid">
+            <p class="invalid-input" *ngIf="productCategory.errors && productCategory.errors['required']">Enter Product Category</p>
+        </div>
+        <input class="form-input" type="text" placeholder="Product Color" name="color" ngModel ={{productData?.color}} #productColor="ngModel" required>
+        <div *ngIf="productColor.touched && productColor.invalid">
+            <p class="invalid-input" *ngIf="productColor.errors && productColor.errors['required']">Enter Product Color</p>
+        </div>
+        <textarea class="form-input" type="text" placeholder="Product Description" name="description" ngModel={{productData?.description}} #productDescription="ngModel" required></textarea>
+        <div *ngIf="productDescription.touched && productDescription.invalid">
+            <p class="invalid-input" *ngIf="productDescription.errors && productDescription.errors['required']">Enter Product Description</p>
+        </div>
+        <input class="form-input" type="text" placeholder="Product Image Url" name="image" ngModel={{productData?.image}} #productImage="ngModel" required>
+        <div *ngIf="productImage.touched && productImage.invalid">
+            <p class="invalid-input" *ngIf="productImage.errors && productImage.errors['required']">Enter Product Image Url</p>
+        </div>
+        <button class="form-btn proceed-btn" *ngIf="updateBtn" [disabled]="productForm.invalid">Update Product</button>
+        <button class="form-btn loading-btn bg-transparent text-success" type="button" disabled *ngIf="loadingBtn">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
     </form>
 </div>

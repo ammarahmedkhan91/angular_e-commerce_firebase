@@ -69,6 +69,10 @@
     width: 140px;
 }
 
+.loading-btn {
+    width: 140px;
+}
+
 .quantity-group {
     margin-top: 8px;
 }
@@ -118,12 +122,9 @@
         font-size: 18px;
     }
 
-    .buy-btn {
-        margin-left: 8px;
-    }
-
     .buy-btn, .cart-btn, .remove-btn, .loading-btn {
         margin-bottom: 8px;
+        margin-left: 0;
     }
 
     .quantity-group {

@@ -15,6 +15,8 @@ export class SellerUpdateProductComponent implements OnInit {
   productMessage: undefined | string;
   products: product[] | undefined;
   productIndex: number | undefined;
+  updateBtn: boolean = true;
+  loadingBtn: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private router: Router) { }
 
@@ -36,6 +38,9 @@ export class SellerUpdateProductComponent implements OnInit {
   }
 
   submit(data: product) {
+    this.updateBtn = false;
+    this.loadingBtn = true;
+
     let seller = localStorage.getItem('seller')
     let sellerId = seller && JSON.parse(seller).sellerId;
     if (this.productData && this.products && this.productIndex !== undefined) {

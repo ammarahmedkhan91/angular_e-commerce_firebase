@@ -9,9 +9,12 @@ import { ProductService } from './services/product.service';
 export class AppComponent implements OnInit {
 
   title = 'ecom-project';
+
   constructor(private product: ProductService) { }
+
   ngOnInit(): void {
     this.product.getUserCartLength();
     this.product.getUserOrdersLength();
   }
+  
 }

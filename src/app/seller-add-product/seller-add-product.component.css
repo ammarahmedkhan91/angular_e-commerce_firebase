@@ -7,3 +7,7 @@ h1{
 .add-product{
     text-align: center;
 }
+
+.loading-btn {
+    margin-bottom: 8px;
+}

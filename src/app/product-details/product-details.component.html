@@ -15,8 +15,7 @@
                 <p class="product-name">{{productData.name}}</p>
                 <p class="product-price">Rs.{{productData.price}}</p>
                 <p><b>Color:</b> {{productData.color}}</p>
-                <p [style.backgroundColor]="productData.color" class="product-color">
-                <p>
+                <p class="product-color" [style.backgroundColor]="productData.color"><p>
                 <p><b>Category:</b> {{productData.category}}</p>
                 <p class="product-description"><b>Description:</b> {{productData.description}}</p>
                 <button class="form-btn proceed-btn buy-btn" (click)="buyProduct(productData.id)">Buy Now</button>
